@@ -4,7 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"log"
 	"notes/models"
-	"encoding/json"
+	//"encoding/json"
 )
 
 type NotesController struct{
@@ -17,9 +17,10 @@ func (this *NotesController)Get() {
 	models.GetAll()
 	temp :=make(map[string]*(models.Note))
 	temp=models.GetAll()
-
-	result,_:=json.Marshal(temp)
-	this.Ctx.WriteString("Get all"+string(result))
+	this.Data["Notes"]=temp
+	this.TplName="notes.tpl"
+	//result,_:=json.Marshal(temp)
+	//this.Ctx.WriteString("Get all"+string(result))
 }
 
 func (this *NotesController)Post() {
