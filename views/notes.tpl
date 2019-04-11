@@ -11,13 +11,13 @@
     </header>
     <div class="notes">
         
-        <form action="http://127.0.0.1:8080/notes" method="POST">
-        Title:<br>
-        <input type="text" name="Title" value="Title">
+        <form action='{{urlfor "NotesController.Post"}}' method="POST" enctype="application/x-www-form-urlencoded">
+        <br>Title:<br>
+        <input type="text" name="Title" placeholder="Title">
         <br>Date:<br>
-        <input type="text" name="Date" value="">
-        <br>Data.Val:<br>
-        <input type="text" name="Val" value="Content">
+        <input type="text" name="Date" placeholder="Date">
+        <br>Val:<br>
+        <input type="text" name="Date.Val" placeholder="content">
         <br>
         <input type="submit" value="Submit">
         </form> 
