@@ -14,7 +14,7 @@ type NotesController struct{
 func (this *NotesController)Get() {
 	log.Print()
 
-	models.GetAll()
+	//models.GetAll()
 	temp :=make(map[string]*(models.Note))
 	temp=models.GetAll()
 	this.Data["Notes"]=temp
@@ -27,7 +27,8 @@ func (this *NotesController)Post() {
 	uuid:=this.GetString("Uuid")
 	log.Printf("Get post from %v",uuid)
 	err:=models.SetNotes(uuid,this.Ctx.Input.RequestBody)
-	log.Printf("Post Error:%v",err)
+	log.Printf("Post Error:%v;\nContent:%s",err,this.Ctx.Input.RequestBody)
 	log.Println(this.Ctx.Input.RequestBody)
-	this.Ctx.WriteString("Set!")
+	this.Redirect("/notes",302)
+	//this.Get()
 }
