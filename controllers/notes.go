@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"time"
 	"github.com/astaxie/beego"
 	"log"
 	"notes/models"
-	//"encoding/json"
+	"encoding/json"
 )
 
 type NotesController struct{
@@ -12,7 +13,14 @@ type NotesController struct{
 }
 
 func (this *NotesController)Get() {
-	log.Print()
+	uuid:=this.GetString("UUID")
+	if uuid!=""{if models.GetNotes(uuid)!=nil{
+		log.Println("1.1")
+		temp:=models.GetNotes(uuid)
+		this.Data["UUID"]=temp.Uuid
+		this.Data["Title"]=temp.Title
+		this.Data["Val"]=temp.Data.Val
+	}}
 
 	//models.GetAll()
 	temp :=make(map[string]*(models.Note))
@@ -24,10 +32,28 @@ func (this *NotesController)Get() {
 }
 
 func (this *NotesController)Post() {
-	uuid:=this.GetString("Uuid")
+	temp:=new(models.Note)
+	uuid:=this.GetString("UUID")
+	if uuid!=""{
+		if ok:=(models.GetNotes(uuid));ok!=nil{
+			temp=ok
+		}
+	}
+	title:=this.GetString("Title")
+	if title!=""{temp.Title=title}
+	val:=this.GetString("Data.Val")
+	temp.Date=time.Now()
+	if val!=""{temp.Data.Val=val}
+	if true{
 	log.Printf("Get post from %v",uuid)
-	err:=models.SetNotes(uuid,this.Ctx.Input.RequestBody)
-	log.Printf("Post Error:%v;\nContent:%s",err,this.Ctx.Input.RequestBody)
+	log.Printf("Get post title is  %v",temp.Title)
+	log.Printf("Get post Val is %v",temp.Data.Val)
+}
+	data,_:=json.Marshal(temp)
+	err:=models.SetNotes(uuid,data)
+	if err!=nil{
+		log.Printf("Post Error:%v;\nContent:%s",err,this.Ctx.Input.RequestBody)
+	}
 	log.Println(this.Ctx.Input.RequestBody)
 	this.Redirect("/notes",302)
 	//this.Get()

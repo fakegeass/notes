@@ -8,13 +8,13 @@ import (
 )
 
 type content struct{
-	Type string
-	Val string
+	t 	string
+	Val string		`json:"Content"`
 }
 
 type Note struct{
 	Title string
-	Date uint64
+	Date time.Time
 	Uuid string
 	Data content
 }
@@ -27,7 +27,7 @@ func init(){
 }
 
 
-func GetNotes(uuid string) interface{}{
+func GetNotes(uuid string) *Note{
 	var temp *Note
 	if uuid==""{
 		temp=new(Note)
@@ -36,7 +36,7 @@ func GetNotes(uuid string) interface{}{
 	}else{
 		temp=noteLink[uuid]
 	}
-	return (*temp).Title
+	return (temp)
 }
 
 func GetAll() map[string]*Note{

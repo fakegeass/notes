@@ -12,12 +12,12 @@
     <div class="notes">
         
         <form action='{{urlfor "NotesController.Post"}}' method="POST" enctype="application/x-www-form-urlencoded">
+        <br>Notes ID:<br>
+        <input type="text" name="UUID" placeholder={{.Num}}>
         <br>Title:<br>
-        <input type="text" name="Title" placeholder="Title">
-        <br>Date:<br>
-        <input type="text" name="Date" placeholder="Date">
+        <input type="text" name="Title" placeholder={{.Title}}>
         <br>Val:<br>
-        <input type="text" name="Date.Val" placeholder="content">
+        <input type="text" name="Data.Val" placeholder={{.Val}}>
         <br>
         <input type="submit" value="Submit">
         </form> 
@@ -26,7 +26,7 @@
 
         <table border="1">
         <tr>
-        <th>NoteId</th>
+        <th>Num</th>
         <th>Title</th>
         <th>Date</th>
         <th>Data.Val</th>
