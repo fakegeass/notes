@@ -15,21 +15,21 @@
         <br>Notes ID:<br>
         <input type="text" name="UUID" placeholder={{.Num}}>
         <br>Title:<br>
-        <input type="text" name="Title" placeholder={{.Title}}>
+        <textarea rows="1" name="Title" cols="50"></textarea>
         <br>Val:<br>
-        <input type="text" name="Data.Val" placeholder={{.Val}}>
+        <textarea rows="8" name="Data.Val" cols="50"></textarea>
         <br>
         <input type="submit" value="Submit">
         </form> 
 
 
-
-        <table border="1">
+        <h3>Notes:</h3>
+        <table width="1500" border="1" style="table-layout: fixed; word-wrap:break-word;">  
         <tr>
-        <th>Num</th>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Data.Val</th>
+        <th width="100">Num</th>
+        <th width="180">Title</th>
+        <th width="350">Date</th>
+        <th >Data.Val</th>
         </tr>
         {{range $key ,$v:=.Notes}}
         <tr>
