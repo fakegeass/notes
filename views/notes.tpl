@@ -29,7 +29,7 @@
         <th width="100">Num</th>
         <th width="180">Title</th>
         <th width="350">Date</th>
-        <th >Data.Val</th>
+        <th>Content</th>
         </tr>
         {{range $key ,$v:=.Notes}}
         <tr>
