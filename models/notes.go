@@ -1,6 +1,7 @@
 package models
 
 import (
+	"os"
 	"strconv"
 	"log"
 	"encoding/json"
@@ -23,6 +24,7 @@ var noteLink map[string]*Note
 
 func init(){
 	noteLink=make(map[string]*Note)
+	log.SetOutput(os.Stdout)
 	log.Println("Notes init...")
 }
 

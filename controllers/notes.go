@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"os"
 	"time"
 	"github.com/astaxie/beego"
 	"log"
@@ -10,6 +11,10 @@ import (
 
 type NotesController struct{
 	beego.Controller
+}
+
+func init(){
+	log.SetOutput(os.Stdout)
 }
 
 func (this *NotesController)Get() {
@@ -51,6 +56,7 @@ func (this *NotesController)Post() {
 }
 	data,_:=json.Marshal(temp)
 	err:=models.SetNotes(uuid,data)
+	log.Printf("%#v\n",temp)
 	if err!=nil{
 		log.Printf("Post Error:%v;\nContent:%s",err,this.Ctx.Input.RequestBody)
 	}
