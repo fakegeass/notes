@@ -1,6 +1,11 @@
 #  Notes
+基于beego框架实现的在线记事本
 ##  目标
     实现私人笔记的远程同步
+
+##  预览
+![预览](/views/capture.PNG)
+
 
 ##  现状
 - 已实现/notes的GET和POST方式
