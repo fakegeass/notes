@@ -64,3 +64,12 @@ func (this *NotesController)Post() {
 	this.Redirect("/notes",302)
 	//this.Get()
 }
+
+func (this *NotesController)Delete(){
+	uuid:=this.GetString("UUID")
+	err:=models.Delete(uuid)
+	if err!=nil{
+		log.Println("DELETE note fail for NoteID ",uuid,",reason:",err)
+	}
+	this.Redirect("/notes",302)
+}

@@ -8,7 +8,7 @@
 
 
 ##  现状
-- 已实现/notes的GET和POST方式
+- 已实现notes的创建、修改、删除操作
 - 只能通过note id修改已存储内容
 
 ##   TODO

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 	"log"
@@ -73,4 +74,12 @@ func SetNotes(uuid string,data []byte) error{
 func newUuid()string{
 	date:=time.Now().Unix()
 	return strconv.Itoa(int(date))
+}
+
+func Delete(uuid string)error{
+	if _,ok:=noteLink[uuid];ok{
+		delete(noteLink,uuid)
+		return nil
+	}
+	return fmt.Errorf("not exist")
 }

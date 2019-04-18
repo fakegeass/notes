@@ -20,7 +20,13 @@
         <textarea rows="8" name="Data.Val" cols="50"></textarea>
         <br>
         <input type="submit" value="Submit">
-        </form> 
+        
+        
+
+        <a title="请输入待删除的Notes ID"><input type="button" value="delete" onclick="javasrctpt:window.location.href='/notes/delete?UUID='+this.form.UUID.value"></a>
+        
+        </form>
+        
 
 
         <h3>Notes:</h3>
