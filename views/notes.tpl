@@ -22,8 +22,8 @@
         <input type="submit" value="Submit">
         
         
-
-        <a title="请输入待删除的Notes ID"><input type="button" value="delete" onclick="javasrctpt:window.location.href='/notes/delete?UUID='+this.form.UUID.value"></a>
+        <!--利用js中的encodeURIComponent进行转义处理-->
+        <a title="请输入待删除的Notes ID"><input type="button" value="delete" onclick="javasrctpt:window.location.href='/notes/delete?UUID='+encodeURIComponent(this.form.UUID.value)"></a>
         
         </form>
         
