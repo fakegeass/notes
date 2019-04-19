@@ -34,14 +34,14 @@
         <tr>
         <th width="100">Num</th>
         <th width="180">Title</th>
-        <th width="350">Date</th>
+        <th width="180">Date</th>
         <th>Content</th>
         </tr>
         {{range $key ,$v:=.Notes}}
         <tr>
         <td>{{$key}}</td>
         <td>{{$v.Title}}</td>
-        <td>{{$v.Date}}</td>
+        <td>{{$v.Date|format}}</td>
         <td>{{$v.Data.Val}}</td>
         </tr>
         {{end}}
