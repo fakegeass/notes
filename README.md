@@ -1,15 +1,21 @@
 #  Notes
-基于beego框架实现的在线记事本
+基于beego框架实现的在线工具箱
 ##  目标
-    实现在线记事本，并进一步拓展为在线工具箱。
+    已实现在线记事本、文件共享，并进一步拓展为在线工具箱。
 
 ##  预览
-![预览](/views/capture.PNG)
+![预览](/views/capture/homepage.PNG)
+### 记事本
+![预览](/views/capture/notes.PNG)
+
+### 文件共享
+![预览](/views/capture/fileshare.PNG)
+
 
 
 ##  现状
 - 已实现notes的创建、修改、删除操作
-- 只能通过note id修改已存储内容
+- 已显示文件上传、下载
 
 ##   TODO
 - [ ] 联动数据库存储笔记

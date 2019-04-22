@@ -75,24 +75,16 @@
 
 <body>
   <header>
-    <h1 class="logo">Welcome to Beego</h1>
+    <h1 class="logo">Welcome to Forsaken's Tools Box</h1>
     <div class="description">
-      Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
+      Just some tools.Just for fun.
     </div>
+  
   </header>
-
-  <div class="description">Tools List:</div>
+  <h1 class="description">Tools List:</h1>
   <div align="center"><button><a href="/notes">Notes</a></button>
   <td align="center"><button><a href="/file">File Share</a></button></td></div>
-  <footer>
-    <div class="author">
-      Official website:
-      <a href="http://{{.Website}}">{{.Website}}</a> /
-      Contact me:
-      <a class="email" href="mailto:{{.Email}}">{{.Email}}</a>
-    </div>
-  </footer>
-  <div class="backdrop"></div>
+
 
   <script src="/static/js/reload.min.js"></script>
 </body>
