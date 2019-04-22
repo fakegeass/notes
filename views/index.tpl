@@ -83,7 +83,7 @@
 
   <div class="description">Tools List:</div>
   <div align="center"><button><a href="/notes">Notes</a></button>
-  <td align="center"><button><a href="/download">File Share</a></button></td></div>
+  <td align="center"><button><a href="/file">File Share</a></button></td></div>
   <footer>
     <div class="author">
       Official website:
