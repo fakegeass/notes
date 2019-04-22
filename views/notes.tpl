@@ -32,10 +32,10 @@
         <h3>Notes:</h3>
         <table width="1500" border="1" style="table-layout: fixed; word-wrap:break-word;">  
         <tr>
-        <th width="100">Num</th>
-        <th width="180">Title</th>
-        <th width="180">Date</th>
-        <th>Content</th>
+        <th align="left" width="100">Num</th>
+        <th align="left" width="180">Title</th>
+        <th align="left" width="180">Date</th>
+        <th align="left" >Content</th>
         </tr>
         {{range $key ,$v:=.Notes}}
         <tr>
