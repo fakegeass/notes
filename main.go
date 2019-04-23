@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	_ "notes/routers"
+	_ "github.com/fakegeass/notes/routers"
 	"github.com/astaxie/beego"
 )
 

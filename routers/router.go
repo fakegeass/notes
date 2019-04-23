@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"notes/controllers"
+	"github.com/fakegeass/notes/controllers"
 	"github.com/astaxie/beego"
 )
 

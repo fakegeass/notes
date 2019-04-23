@@ -5,7 +5,7 @@ import (
 	"time"
 	"github.com/astaxie/beego"
 	"log"
-	"notes/models"
+	"github.com/fakegeass/notes/models"
 	"encoding/json"
 )
 
