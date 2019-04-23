@@ -3,6 +3,14 @@ language: go
 go:
   - "1.10.x"
 
+before_install:
+  - mkdir -p ${GOPATH}/src
+
 install:
-  - export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
   - go get -u github.com/astaxie/beego
+
+script:
+  -cd ${GOPATH}/src/github.com/fakegeass/notes
+
+notifications:
+  email: false
