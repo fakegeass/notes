@@ -3,9 +3,6 @@ language: go
 go:
   - "1.10.x"
 
-env:
-  - export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
-
 install:
-  - go get -u github.com/astaxie/beego
   - export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
+  - go get -u github.com/astaxie/beego
