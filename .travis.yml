@@ -4,5 +4,5 @@ go:
   - "1.10.x"
 
 install:
-  go get -u github.com/astaxie/beego
-  export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
+  - go get -u github.com/astaxie/beego
+  - export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
