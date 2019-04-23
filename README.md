@@ -1,4 +1,4 @@
-#  Notes
+#  Notes [![Build Status](https://travis-ci.org/fakegeass/notes.svg?branch=master)](https://travis-ci.org/fakegeass/notes)
 基于beego框架实现的在线工具箱
 ##  目标
     已实现在线记事本、文件共享，并进一步拓展为在线工具箱。
