@@ -6,7 +6,7 @@ import (
 	"testing"
 	"runtime"
 	"path/filepath"
-	_ "github.com/fakegeass/noterouters"
+	_ "github.com/fakegeass/notes/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
