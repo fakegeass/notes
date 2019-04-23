@@ -5,3 +5,4 @@ go:
 
 install:
   go get -u github.com/astaxie/beego
+  export GOPATH=$HOME/gopath/src/github.com/fakegeass/notes
