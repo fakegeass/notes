@@ -10,7 +10,7 @@ install:
   - go get -u github.com/astaxie/beego
 
 script:
-  -cd ${GOPATH}/src/github.com/fakegeass/notes
+  - cd ${GOPATH}/src/github.com/fakegeass/notes
 
 notifications:
   email: false
