@@ -9,7 +9,7 @@ before_install:
 install:
   - go get -u github.com/astaxie/beego
 
-script:
+before_script:
   - cd ${GOPATH}/src/github.com/fakegeass/notes
 
 notifications:
