@@ -5,7 +5,9 @@ go:
 
 install:
   - go get -u github.com/astaxie/beego
+  - go get -u github.com/astaxie/beego/context
   - go get -u github.com/go-redis/redis
+  - go get -u github.com/google/uuid
 
 
 notifications:
