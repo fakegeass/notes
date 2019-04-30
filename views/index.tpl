@@ -77,7 +77,7 @@
   <header>
     <h1 class="logo">Welcome to Forsaken's Tools Box</h1>
     <div class="description">
-      Just some tools.Just for fun.
+      Just some tools.
     </div>
   
   </header>

@@ -16,14 +16,16 @@ func (c *LoginController)Get(){
 }
 
 func (c *LoginController)Post(){
-	user:=c.GetString("username")
-	pass:=c.GetString("password")
+	user:=c.GetString("user")
+	pass:=c.GetString("pass")
 	if ok:=models.JudgePassword(user,pass);!ok{
 		log.Printf("%v login fail!",user)
 		c.Redirect("/login",403)
 		return
 	}
-	c.SetSession("uid",uuid.New())
+	temp:=uuid.New()
+	c.SetSession("uid",temp)
+	c.Ctx.SetCookie("uid",temp.String())
 	log.Println("set uid :",c.GetSession("uid"))
 	log.Printf("%v login success!",user)
 	c.Redirect("/",302)

@@ -7,43 +7,38 @@ import (
 	"fmt"
 )
 
-const(
-	address = ":6379"
-	protocal = "tcp"
-)
-
 type Note4Redir struct{
 	title string
 	date int64		//uinx时间戳
 	content string	//Note.Data.Val
 }
 
-var client *redis.Client = redis.NewClient(&redis.Options{
+var client_note *redis.Client = redis.NewClient(&redis.Options{
     Addr:     "localhost:6379",
     Password: "", // no password set
     DB:       0,  // use default DB
 })
 
 func SaveToRedis(uuid string,field string,val interface{})error{
-	pong, err := client.Ping().Result()
+	pong, err := client_note.Ping().Result()
 	if (err!=nil)||(pong!="PONG"){
 		return fmt.Errorf("SaveToRedis fail,pingpong fail:%s,result is %v",err,pong)
 	}
 	switch field{
 	case "Title":
-		err := client.HSet(uuid, "title", fmt.Sprint(val)).Err()
+		err := client_note.HSet(uuid, "title", fmt.Sprint(val)).Err()
 		if err != nil {
     		return fmt.Errorf("SaveToRedis fail,set %v as %v fail:%s",field,val,err)
 		}
 	case "Date":
 		if temp,ok:=val.(time.Time);ok{
-			err := client.HSet(uuid, "date",temp.Unix()).Err()
+			err := client_note.HSet(uuid, "date",temp.Unix()).Err()
 		if err != nil {
     		return fmt.Errorf("SaveToRedis fail,set %v as %v fail:%s",field,val,err)
 		}	
 		}
 	case "Data":
-		err := client.HSet(uuid, "content", fmt.Sprint(val)).Err()
+		err := client_note.HSet(uuid, "content", fmt.Sprint(val)).Err()
 		if err != nil {
     		return fmt.Errorf("SaveToRedis fail,set %v as %v fail:%s",field,val,err)
 		}
@@ -59,7 +54,7 @@ func GetNote(uuid ,field string)(interface{},error){
 	}else if uuid==""||field==""{
 		return nil,fmt.Errorf("GetNote fail,uuid(%v) or field(%v) is empty.",uuid,field)
 	}
-	val, err := client.HGet(uuid,field).Result()
+	val, err := client_note.HGet(uuid,field).Result()
 	if err == redis.Nil {
 		return nil,fmt.Errorf("GetNote fail,uuid(%v) and field(%v) is not exist.",uuid,field)
 	} else if err != nil {
@@ -73,7 +68,7 @@ func GetNote(uuid ,field string)(interface{},error){
 }
 
 func getAllNote()(interface{},error){
-	keys, err := client.Keys("*").Result()
+	keys, err := client_note.Keys("*").Result()
 	if err!=nil{
 		return nil,fmt.Errorf("GetNote fail,get all keys fail for %v.",err)
 	}
@@ -97,7 +92,7 @@ func getAllNote()(interface{},error){
 }
 
 func deleteInRedis(uuid string)error{
-	int1, err := client.Del(uuid).Result()
+	int1, err := client_note.Del(uuid).Result()
 	if err!=nil{
 		return fmt.Errorf("Delete %v fail for %v:%v.",uuid,int1,err)
 	}

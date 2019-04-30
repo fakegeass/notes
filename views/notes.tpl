@@ -6,7 +6,7 @@
     <header>
         <h1 class="logo">Welcome to Notes!</h1>
         <h2 class="description">
-            This Notes is just for fun!
+            This is just a Note.
         </h2>
     </header>
     <div class="notes">
