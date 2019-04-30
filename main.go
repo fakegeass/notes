@@ -5,11 +5,12 @@ import (
 	_ "github.com/fakegeass/notes/routers"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
+	"github.com/google/uuid"
 )
 
 var FilterUser = func(ctx *context.Context) {
-	sessionID := ctx.GetCookie("uid")
-  if sessionID=="" && ctx.Request.RequestURI != "/login" {
+	sessionID,ok := ctx.Input.Session("uid").(uuid.UUID)
+  if !ok&& ctx.Request.RequestURI != "/login" {
 		log.Printf("Session is illegal(%v).",sessionID)
 		ctx.Redirect(302, "/login")
 	}

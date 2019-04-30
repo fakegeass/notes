@@ -5,7 +5,7 @@
     <title>Login</title>
 </head>
 <body>
-    <form action='/login' method="post" enctype="multipart/form-data">
+    <form align="center" action='/login' method="post" enctype="multipart/form-data">
         <div class="field-content">
             User Name：<input name="user" type="text" />
         </div>
