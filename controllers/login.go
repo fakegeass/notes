@@ -25,7 +25,6 @@ func (c *LoginController)Post(){
 	}
 	temp:=uuid.New()
 	c.SetSession("uid",temp)
-	c.Ctx.SetCookie("uid",temp.String())
 	log.Println("set uid :",c.GetSession("uid"))
 	log.Printf("%v login success!",user)
 	c.Redirect("/",302)
