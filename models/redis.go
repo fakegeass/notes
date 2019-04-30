@@ -15,7 +15,7 @@ type Note4Redir struct{
 
 var client_note *redis.Client = redis.NewClient(&redis.Options{
     Addr:     "localhost:6379",
-    Password: "", // no password set
+    Password: "P@ssW0rd", // no password set
     DB:       0,  // use default DB
 })
 
