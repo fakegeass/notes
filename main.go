@@ -10,9 +10,14 @@ import (
 
 var FilterUser = func(ctx *context.Context) {
 	sessionID,ok := ctx.Input.Session("uid").(uuid.UUID)
-  if !ok&& ctx.Request.RequestURI != "/login" {
+  	if !ok&& ctx.Request.RequestURI != "/login" {
 		log.Printf("Session is illegal(%v).",sessionID)
 		ctx.Redirect(302, "/login")
+		return 
+	}
+	if ctx.GetCookie("uid")!=sessionID.String()&& ctx.Request.RequestURI != "/login"{
+		ctx.Redirect(302, "/login")
+		return 
 	}
 }
 
