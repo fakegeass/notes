@@ -26,7 +26,7 @@ func JudgePassword(user,pass string)bool{
 		log.Printf("JudgePassword fail,user is %v,fail reason %v.",user,err)
 		return false
 	}
-	if pass==result.String(){
+	if pass==result.Val(){
 		return true
 	}
 	return false
