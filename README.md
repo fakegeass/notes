@@ -18,7 +18,7 @@
 
 ### 文件共享
 
-![预览](/views/capture/fileshare.PNG)
+![预览](/views/capture/fileShare.PNG)
 
 ## 现状
 
